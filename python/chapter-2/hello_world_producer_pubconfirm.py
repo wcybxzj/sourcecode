@@ -2,20 +2,21 @@
 # RabbitMQ in Action
 # Chapter 1 - Hello World Producer
 #             w/ Publisher Confirms
-# 
+#
 # Requires: pika >= 0.9.6
-# 
+#
 # Author: Jason J. W. Williams
 # (C)2011
 ###############################################
 
+#rabbitmq的发送方确认机制改变了 此代码有问题, new是正确的
 import pika, sys
 from pika import spec
 
 credentials = pika.PlainCredentials("guest", "guest")
 conn_params = pika.ConnectionParameters("localhost",
                                         credentials = credentials)
-conn_broker = pika.BlockingConnection(conn_params) 
+conn_broker = pika.BlockingConnection(conn_params)
 
 channel = conn_broker.channel()
 
